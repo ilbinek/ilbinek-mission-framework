@@ -1,0 +1,37 @@
+// Import global defines
+#include "includes\defines.hpp"
+#include "includes\BaseControls.hpp"
+
+author = "author";
+onLoadName = "name";
+onLoadMission = "";
+onLoadIntro = "";
+briefingName = "name";
+loadScreen = "logo.jpg";
+debriefing = 0;
+respawnOnStart = -1;
+Saving = 0;
+
+respawn = "BASE";
+respawnDelay = 999999;
+corpseLimit = 999;
+wreckLimit = 999;
+
+enableDebugConsole[] = {ADMINS};
+disableChannels[] = {0,5,6};
+
+class Header {
+	gameType = TDM;
+	minPlayers = 1;
+	maxPlayers = 200;
+};
+
+// Include UI for spectators
+class RscTitles {
+	titles[]= {IMF_spectatorUIRsc};
+	#include "includes\IMF_spectatorUIRsc.hpp"
+};
+
+// Add custom Functions
+#include "includes\cfgFunctions.hpp"
+#include "includes\AdminMenu.hpp"
