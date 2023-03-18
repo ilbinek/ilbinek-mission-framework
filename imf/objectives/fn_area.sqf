@@ -1,6 +1,0 @@
-/*
-*
-*	DOCS MAYBE SOMEDAY
-*
-*/
-

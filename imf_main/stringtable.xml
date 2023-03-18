@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ID="Arma3">
+    <Package ID="IMF">
+        <Container ID="Main">
+
+            <Key ID="STR_IMF_MissionTime">
+                <Original>Mission duration</Original>
+                <Czech>Délka mise</Czech>
+            </Key>
+            <Key ID="STR_IMF_MissionTime_Desc">
+                <Original>Mission duration in minutes</Original>
+                <Czech>Délka mise v minutách</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_WarmupTime">
+                <Original>Warmup duration</Original>
+                <Czech>Délka začátku</Czech>
+            </Key>
+            <Key ID="STR_IMF_WarmupTime_Desc">
+                <Original>Warmup duration in minutes</Original>
+                <Czech>Délka začátku v minutách</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_WarmupArea">
+                <Original>Warmup area size</Original>
+                <Czech>Poloměr oblasti začátku</Czech>
+            </Key>
+            <Key ID="STR_IMF_WarmupArea_Desc">
+                <Original>Warmup area radius in meters</Original>
+                <Czech>Poloměr oblasti začátku v metrech</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_ViewDistance">
+                <Original>Object view distance</Original>
+                <Czech>Dohled objektů</Czech>
+            </Key>
+            <Key ID="STR_IMF_ViewDistance_Desc">
+                <Original>The distance objects will be rendered at</Original>
+                <Czech>Vzdálenost na kterou se budou renderovat objekty</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_ViewDistanceTerrain">
+                <Original>Terrain view distance</Original>
+                <Czech>Dohled terénu</Czech>
+            </Key>
+            <Key ID="STR_IMF_ViewDistanceTerrain_Desc">
+                <Original>The distance terrain will be rendered at</Original>
+                <Czech>Vzdálenost na kterou se bude renderovat terén</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_ThermalImaging">
+                <Original>Disable TI</Original>
+                <Czech>Vypnout TI</Czech>
+            </Key>
+            <Key ID="STR_IMF_ThermalImaging_Desc">
+                <Original>If checked, it will disable TI in everything</Original>
+                <Czech>Pokud zaškrtnuto, tak vypne teplovizi</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_TimeWinner">
+                <Original>Time winner</Original>
+                <Czech>Výherce na čas</Czech>
+            </Key>
+            <Key ID="STR_IMF_TimeWinner_Desc">
+                <Original>Who will win the game when time runs out</Original>
+                <Czech>Kdo vyhraje pokud dojde čas v misi</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_TimeWinnerText">
+                <Original>Time winner text</Original>
+                <Czech>Text v případě výhry na čas</Czech>
+            </Key>
+            <Key ID="STR_IMF_TimeWinnerText_Desc">
+                <Original>Text that will be shown if time runs out</Original>
+                <Czech>Text co se ukáže, pokud dojde čas v misi</Czech>
+            </Key>
+
+            <Key ID="STR_IMF_ObjMissionEnd">
+                <Original>End mission with objectives</Original>
+                <Czech>Ukončit misi po splnění úkolů</Czech>
+            </Key>
+            <Key ID="STR_IMF_ObjMissionEnd_Desc">
+                <Original>End mission when all objectives have been completed</Original>
+                <Czech>Ukončit misi po splnění všech úkolů</Czech>
+            </Key>
+
+
+
+
+
+
+            <Key ID="STR_IMF_Nobody">
+                <Original>Empty</Original>
+                <Czech>Nikdo</Czech>
+            </Key>
+            <Key ID="STR_IMF_East">
+                <Original>Redfor</Original>
+                <Czech>Redfor</Czech>
+            </Key>
+            <Key ID="STR_IMF_West">
+                <Original>Bluefor</Original>
+                <Czech>Bluefor</Czech>
+            </Key>
+            <Key ID="STR_IMF_Resistance">
+                <Original>Resistance</Original>
+                <Czech>Odboj</Czech>
+            </Key>
+            <Key ID="STR_IMF_Civilian">
+                <Original>Civilians</Original>
+                <Czech>Civilisté</Czech>
+            </Key>
+        </Container>
+    </Package>
+</Project>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ID="Arma3">
+    <Package ID="IMF">
+        <Container ID="Main">
+        </Container>
+    </Package>
+</Project>
