@@ -77,8 +77,10 @@ if (isNil "IMF_local_loadout") then {
 };
 
 // ACE Medical bug temp fix - https://github.com/acemod/ACE3/pull/9145
-if (    ) then {
+if (player getVariable ["IMF_killed", false]) then {
     player setDamage 1;
 } else {
     player setVariable ["ace_medical_causeOfDeath", nil];
 };
+
+player setVariable ["IMF_local_side", side player];

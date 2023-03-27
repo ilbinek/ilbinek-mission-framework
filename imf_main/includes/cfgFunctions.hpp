@@ -25,7 +25,7 @@ class CfgFunctions {
 			class createClientHandlers {};
 			class showKills {};
 			class startVLoop {};
-			class client_mission_end {};
+			class clientMissionEnd {};
 		};
 
 		class briefing {

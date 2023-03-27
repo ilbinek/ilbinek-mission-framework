@@ -14,6 +14,7 @@ class CfgPatches {
 };
 
 // Include UI for spectators
+class RscText;
 class RscTitles {
 	titles[] = {IMF_spectatorUIRsc};
 	#include "includes\IMF_spectatorUIRsc.hpp"

@@ -1,40 +1,40 @@
-if not (isNull (vestContainer player)) then {
+if not (isNull (vestContainer cursorTarget)) then {
     private ["_vest", "_vestItems", "_vestmagaiznes"];
-    _vest = vest player;
-    _vestItems = vestItems player;
-    _vestmagaiznes = magazinesAmmoCargo (vestContainer player);
-    removevest player;
+    _vest = vest cursorTarget;
+    _vestItems = vestItems cursorTarget;
+    _vestmagaiznes = magazinesAmmoCargo (vestContainer cursorTarget);
+    removevest cursorTarget;
     
-    player addvest _vest;
+    cursorTarget addvest _vest;
     {
         if not (isClass (configFile >> "cfgmagazines" >> _x)) then
         {
-            player addItemtovest _x;
+            cursorTarget addItemtovest _x;
         };
     } forEach _vestItems;
     {
-        (vestContainer player) addMagazineammoCargo [_x select 0, 1, _x select 1];
+        (vestContainer cursorTarget) addMagazineammoCargo [_x select 0, 1, _x select 1];
     } forEach _vestmagaiznes;
 };
 
 // ===========================
 
-if not (isNull (uniformContainer player)) then {
+if not (isNull (uniformContainer cursorTarget)) then {
     private ["_uniform", "_uniformItems", "_uniformmagaiznes"];
-    _uniform = uniform player;
-    _uniformItems = uniformItems player;
-    _uniformmagaiznes = magazinesAmmoCargo (uniformContainer player);
-    removeuniform player;
+    _uniform = uniform cursorTarget;
+    _uniformItems = uniformItems cursorTarget;
+    _uniformmagaiznes = magazinesAmmoCargo (uniformContainer cursorTarget);
+    removeuniform cursorTarget;
     
-    player forceAdduniform _uniform;
+    cursorTarget forceAdduniform _uniform;
     {
         if not (isClass (configFile >> "cfgmagazines" >> _x)) then
         {
-            player addItemtouniform _x;
+            cursorTarget addItemtouniform _x;
         };
     } forEach _uniformItems;
     
     {
-        (uniformContainer player) addMagazineammoCargo [_x select 0, 1, _x select 1];
+        (uniformContainer cursorTarget) addMagazineammoCargo [_x select 0, 1, _x select 1];
     } forEach _uniformmagaiznes;
 };

@@ -35,6 +35,6 @@ private _time = false;
 };*/
 
 // Show who won
-[_winner, _time, _reason] remoteExec ["IMF_fnc_CLIENT_MISSION_END", [0, -2] select isDedicated];
+[_winner, _time, _reason] remoteExec ["IMF_fnc_clientMissionEnd", [0, -2] select isDedicated];
 
 missionNamespace setVariable ["IMF_MISSION_ENDED", true, true];
