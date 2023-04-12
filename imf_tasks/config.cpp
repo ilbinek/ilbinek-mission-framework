@@ -94,6 +94,13 @@ class CfgVehicles {
 				defaultValue = 1;
 			};
 
+            class Height {
+                displayName = "Height";
+				description = "How many meters over ground is counted as in zone";
+				typeName = "NUMBER";
+				defaultValue = 50;
+            };
+
             class Condition {
                 displayName = "Condition of activation";
                 description = "The condition that will determine wether this area can be captured or not - true to be capturable";
@@ -103,7 +110,7 @@ class CfgVehicles {
         };
     };
 
-    // IMF Task simple area module
+    // IMF Task manager module
     class IMF_Task_Manager: Module_F {
         scope = 2;
         author = "ilbinek";
@@ -142,6 +149,49 @@ class CfgVehicles {
             class Code {
                 displayName = "Code";
                 description = "Code that will return the side that wins";
+            };
+        };
+    };
+
+    // IMF Task simple VIP module
+    class IMF_Task_VIP: Module_F {
+        scope = 2;
+        author = "ilbinek";
+        displayName = "VIP";
+        category = "IMF";
+        function = "IMF_fnc_vip";
+        functionPriority = 1;
+        icon = "\imf_main\tbdlogo.paa";
+        isGlobal = 0;
+        isTriggerActivated = 0;
+
+         class Arguments: ArgumentsBaseUnits {
+            class Marker {
+                displayName = "Marker";
+                description = "Marker that will limit the area that the VIP can be in. If not limited, leave empty";
+                typeName = "STRING";
+                defaultValue = "";
+            };
+
+            class Time {
+                displayName = "Time";
+                description = "How long can the VIP be outside of the marker area";
+                typeName = "NUMBER";
+                defaultValue = "10";
+            };
+
+            class Object {
+                displayName = "Object";
+                description = "Object that is the VIP";
+                typeName = "STRING";
+                defaultValue = "";
+            };
+
+            class Name {
+                displayName = "Name";
+                description = "Name of the VIP";
+                typeName = "STRING";
+                defaultValue = "";
             };
         };
     };

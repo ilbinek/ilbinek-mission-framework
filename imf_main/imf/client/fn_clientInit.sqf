@@ -55,21 +55,6 @@ call IMF_fnc_clientLoop;
 IMF_KILLS = [];
 IMF_KILLER = "";
 
-// Add fix uniform bug into ace self interaction menu
-private _action = [
-    "FixuniformBug",
-    "Fix uniform Bug",
-    "",
-    {
-        call IMF_fnc_fixuniformBug
-    },
-    {
-        true
-    }
-] call ace_interact_menu_fnc_createaction;
-
-[player, 1, ["ACE_Selfactions"], _action] call ace_interact_menu_fnc_addActiontoObject;
-
 // Save the current loadout as local variable
 IMF_local_loadoUT = getUnitloadout player;
 if (isNil "IMF_local_loadout") then {

@@ -2,6 +2,8 @@
 #include "includes\defines.hpp"
 //#include "includes\BaseControls.hpp"
 #include "includes\AdminMenu.hpp"
+#include "includes\RscIMFMainMenu.hpp"
+#include "includes\RscIMFOptionsMenu.hpp"
 
 class CfgPatches {
 	class imf_main {

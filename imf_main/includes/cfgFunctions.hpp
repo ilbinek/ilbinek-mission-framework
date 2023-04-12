@@ -78,9 +78,14 @@ class CfgFunctions {
 
 		class admin {
 			file = "imf_main\imf\admin";
-			class openMenu {};
 			class handleAdminMenu {};
 			class populatePlayers {};
+		};
+
+		class ui {
+			file = "imf_main\imf\ui";
+			class openMenu {};
+			class mainMenuHandler {};
 		};
 	};
 };

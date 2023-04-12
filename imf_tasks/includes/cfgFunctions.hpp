@@ -5,6 +5,8 @@ class CfgFunctions {
 			class objectiveManager {};
 			class area {};
 			class areaNotification {};
+			class vip {};
+			class vipNotification {};
 		};
 	};
 };

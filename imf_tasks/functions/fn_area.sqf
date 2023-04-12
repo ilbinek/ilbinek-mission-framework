@@ -42,6 +42,7 @@ _activated = param [2,true,[true]];
 	private _timeToCapture = _logic getVariable ["TimeToCapture", 60];
 	private _recapturable = _logic getVariable ["Recapturable", false];
 	private _advantage = _logic getVariable ["Advantage", 1];
+	private _height = _logic getVariable ["Height", 50];
 	private _condition = compile (_logic getVariable ["Condition", "true"]);
 
 	// Edit the marker visuals at the start
@@ -76,7 +77,7 @@ _activated = param [2,true,[true]];
 		if (_capturer == civilian) then {
 			// TODO 
 		} else {
-			_cap = { alive _x && side _x == _capturer && _x inArea _marker } count allPlayers;
+			_cap = { alive _x && side _x == _capturer && _x inArea _marker && (getPos _x select 2) <= _height} count allPlayers;
 			_capSide = _capturer;
 		};
 
