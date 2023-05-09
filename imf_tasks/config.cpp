@@ -138,6 +138,15 @@ class CfgVehicles {
                 control = "Edit";
                 isLocalized = 1;
             };
+
+            class End: Edit {
+                property = "ModuleEnd";
+                displayName = "End";
+                tooltip = "Code that returns true if missions should end, otherwise return false";
+                control = "EditMulti5";
+                isLocalized = 1;
+                defaultValue = "false";
+            };
         };
 
         class Arguments: ArgumentsBaseUnits {
@@ -149,6 +158,11 @@ class CfgVehicles {
             class Code {
                 displayName = "Code";
                 description = "Code that will return the side that wins";
+            };
+
+            class End {
+                displayName = "End";
+                description = "Code that returns true if missions should end, otherwise return false";
             };
         };
     };

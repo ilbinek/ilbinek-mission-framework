@@ -1,9 +1,11 @@
 #include "includes\cfgFunctions.hpp"
 #include "includes\defines.hpp"
-//#include "includes\BaseControls.hpp"
+#include "includes\BaseControls.hpp"
 #include "includes\AdminMenu.hpp"
+#include "includes\RscIMFAdminMenu.hpp"
 #include "includes\RscIMFMainMenu.hpp"
 #include "includes\RscIMFOptionsMenu.hpp"
+#include "includes\RscIMFFeedback.hpp"
 
 class CfgPatches {
 	class imf_main {
@@ -16,7 +18,6 @@ class CfgPatches {
 };
 
 // Include UI for spectators
-class RscText;
 class RscTitles {
 	titles[] = {IMF_spectatorUIRsc};
 	#include "includes\IMF_spectatorUIRsc.hpp"

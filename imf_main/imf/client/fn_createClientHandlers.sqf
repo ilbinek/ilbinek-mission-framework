@@ -49,6 +49,23 @@ player addEventHandler ["Respawn", {
 	("IMF_spectatorUI" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
 }];
 
+// Player went uncon
+["ace_unconscious", {
+	params ["_unit", "_state"];
+	if (_unit != player) exitWith {};
+	if (_state) then {
+		player setVariable ["OLD_GROUP", group player];
+		if (isNil "IMF_GLOBAL_CIVIL") then {
+			_group = createGroup civilian;
+			missionNamespace setVariable ["IMF_GLOBAL_CIVIL", _group, true];
+		};
+		[player] joinSilent IMF_GLOBAL_CIVIL;
+	} else {
+		_group = player getVariable "OLD_GROUP";
+		[player] joinSilent _group;
+	};
+}] call CBA_fnc_addEventHandler;
+
 // Add view distance changes to zeus spectators
 ["ace_spectator_displayLoaded", {params ["_display"]; _display displayAddEventHandler ["KeyDown", {call cba_events_fnc_keyHandlerDown}];
 _display displayAddEventHandler ["KeyUp", {call cba_events_fnc_keyHandlerUp}];}] call CBA_fnc_addEventHandler;

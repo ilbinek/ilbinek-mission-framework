@@ -599,7 +599,7 @@ class AdminMenu
 			};
 			
 		};
-		class teleport
+		class teleport: RscEdit
 		{
 			type = 1;
 			idc = -1;
@@ -631,7 +631,25 @@ class AdminMenu
 			onButtonClick = "['teleport', _this] call IMF_fnc_handleAdminMenu";
 			
 		};
-		
+
+		class FirstSearch: RscEdit {
+			idc = 6561;
+			x = safeZoneX + safeZoneW * 0.31875;
+			y = safeZoneY + safeZoneH * 0.8;
+			w = safeZoneW * 0.15;
+			h = safeZoneH * 0.05;
+			colorBackground[] = {0,0,0,0.3};
+			text = "";
+		};
+
+		class SecondSearch: RscEdit {
+			idc = 6562;
+			x = safeZoneX + safeZoneW * 0.54375;
+			y = safeZoneY + safeZoneH * 0.8;
+			w = safeZoneW * 0.15;
+			h = safeZoneH * 0.05;
+			colorBackground[] = {0,0,0,0.5};
+			text = "";
+		};
 	};
-	
 };

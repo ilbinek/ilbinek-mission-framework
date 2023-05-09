@@ -13,4 +13,12 @@ _activated = param [2,true,[true]];
 
 missionNamespace setVariable ["IMF_TASK_MANAGER", _logic, true];
 private _function = compile (_logic getVariable "Code");
+private _end = compile (_logic getVariable "End");
 _logic setVariable ["function", _function];
+
+[_end] spawn {
+	params ["_end"];
+	waitUntil {sleep 1; time > 10};
+	waitUntil {sleep 10; call _end};
+	call IMF_fnc_missionEnd;
+};

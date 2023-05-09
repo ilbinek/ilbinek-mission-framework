@@ -1,7 +1,0 @@
-/*
-*
-*	DOCS MAYBE SOMEDAY
-*
-*/
-
-// TODO

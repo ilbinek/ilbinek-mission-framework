@@ -31,6 +31,11 @@ if (isNil "IMF_max_view_distance") then {
 	missionNamespace setVariable ["IMF_max_view_distance", IMF_var_logic getVariable "MaxViewDistance", true];
 };
 
+// Set max terrain ciew distance
+if (isNil "IMF_max_view_terrain") then {
+	missionNamespace setVariable ["IMF_max_view_terrain", IMF_var_logic getVariable "MaxViewDistanceTerrain", true];
+};
+
 // Set mission time
 if (isNil "IMF_mission_duration") then {
 	missionNamespace setVariable ["IMF_mission_duration", (IMF_var_logic getVariable "MissionTime") * 60, true];

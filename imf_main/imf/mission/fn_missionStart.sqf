@@ -11,7 +11,7 @@ if (!isServer) exitwith {};
 [] spawn {
 	while {true} do {
 		missionNamespace setVariable ["IMF_server_fps", diag_fps, true];
-		sleep 1;
+		sleep 5;
 	};
 };
 
@@ -31,15 +31,16 @@ if (!isServer) exitwith {};
 	call IMF_fnc_missionEnd;
 };
 
-// Loop that will check if one of sides is fully dead
+// Loop that will check if one of sides is considered eliminated
 if (IMF_mission_end_if_dead) then {
 	_west_start = {alive _x && side _x == west} count allPlayers;
 	_east_start = {alive _x && side _x == east} count allPlayers;
-
+	_guer_start = {alive _x && side _x == resistance} count allPlayers;
 	// TODO remake it to percentages
+	// TODO make it work in a three way
 
-	[_west_start, _east_start] spawn {
-		params ["_west_start", "_east_start"];
+	[_west_start, _east_start, _guer_start] spawn {
+		params ["_west_start", "_east_start", "_guer_start"];
 		waitUntil {sleep 1; IMF_warmup_state == 2};
 		if (count allPlayers < 10) exitWith {};
 		private _west = 0;
@@ -47,11 +48,12 @@ if (IMF_mission_end_if_dead) then {
 		while {true} do {
 			_west = {alive _x && side _x == west} count allPlayers;
 			_east = {alive _x && side _x == east} count allPlayers;
+			_guer = {alive _x && side _x == resistance} count allPlayers;
 			if (_west < IMF_mission_end_players) exitWith {
-				[east, "Enemies were eliminated"] call IMF_fnc_missionInterupt;
+				[east, "Side eliminated"] call IMF_fnc_clientMissionEnd;
 			};
 			if (_east < IMF_mission_end_players) exitWith {
-				[west, "Enemies were eliminated"] call IMF_fnc_missionInterupt;
+				[west, "Side eliminated"] call IMF_fnc_clientMissionEnd;
 			};
 			sleep 5;
 		};

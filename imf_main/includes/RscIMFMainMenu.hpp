@@ -7,12 +7,9 @@
 #define IDC_MENU_CONSOLE	61006
 #define IDC_MENU_FEEDBACK	61007
 
-class RscButton;
-class RscButtonMenu;
-
 class RscIMFButtonMenu: RscButtonMenu {
-	h = 0.1;
-	w = 0.3;
+	h = safeZoneH * 0.05;
+	w = safeZoneW * 0.15;
 	color[] = {0.543,0.5742,0.4102,1.0};
 	period = 0.5;
 	size = 0.03921;
@@ -55,56 +52,56 @@ class RscIMFMainMenu {
 	class Controls {
 		class RscButtonMenuOptions: RscIMFButtonMenu {
 			idc = IDC_MENU_OPTIONS;
-			x = 0.02;
-            y = 0.255;
+			x = safeZoneX + safeZoneW * 0.2;
+            y = safeZoneY + safeZoneH * 0.255;
             text = "OPTIONS";
             action = "['options', _this] call IMF_fnc_mainMenuHandler;";
 		};
 
 		class RscButtonMenuContact: RscIMFButtonMenu {
 			idc = IDC_MENU_CONTACT;
-			x = 0.02;
-            y = 0.360;
+			x = safeZoneX + safeZoneW * 0.2;
+            y = safeZoneY + safeZoneH * 0.310;
             text = "CONTACT ADMIN";
             action = "['contact', _this] call IMF_fnc_mainMenuHandler;";
 		};
 
 		class RscButtonMenuUniform: RscIMFButtonMenu {
 			idc = IDC_MENU_UNIFORM;
-			x = 0.02;
-            y = 0.465;
+			x = safeZoneX + safeZoneW * 0.2;
+            y = safeZoneY + safeZoneH * 0.365;
             text = "FIX UNIFORM BUG";
             action = "['fixUniformBug', _this] call IMF_fnc_mainMenuHandler;";
 		};
 
 		class RscButtonMenuClose: RscIMFButtonMenu {
 			idc = IDC_MENU_CLOSE;
-			x = 0.02;
-            y = 0.570;
+			x = safeZoneX + safeZoneW * 0.2;
+            y = safeZoneY + safeZoneH * 0.420;
             text = "CLOSE";
             action = "closeDialog 0;";
 		};
 
 		class RscButtonMenuAdmin: RscIMFButtonMenu {
 			idc = IDC_MENU_ADMIN;
-			x = 0.6;
-            y = 0.360;
+			x = safeZoneX + safeZoneW * 0.6;
+            y = safeZoneY + safeZoneH * 0.310;
             text = "ADMIN MENU";
             action = "['admin', _this] call IMF_fnc_mainMenuHandler;";
 		};
 
 		class RscButtonMenuConsole: RscIMFButtonMenu {
 			idc = IDC_MENU_CONSOLE;
-			x = 0.6;
-            y = 0.465;
+			x = safeZoneX + safeZoneW * 0.6;
+            y = safeZoneY + safeZoneH * 0.365;
             text = "CONSOLE";
             action = "createDialog 'RscDisplayDebugPublic';";
 		};
 
 		class RscButtonMenuFeedback: RscIMFButtonMenu {
 			idc = IDC_MENU_FEEDBACK;
-			x = 0.6;
-            y = 0.570;
+			x = safeZoneX + safeZoneW * 0.6;
+            y = safeZoneY + safeZoneH * 0.420;
             text = "FEEDBACK LOG";
             action = "['feedback', _this] call IMF_fnc_mainMenuHandler;";
 		};

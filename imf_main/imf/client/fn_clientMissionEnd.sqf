@@ -16,6 +16,6 @@ if (_side == _winner) then {
 } else { 
  // Lost 
 	_toShow = ["<t size='2' color='#FF0000' shadow=2>", "DEFEAT", "<br />", _reason, "</t>"] joinString ""; 
-}; 
+};
  
 [_toShow, 0, 0, 15, 0, 0, 3222] spawn BIS_fnc_dynamicText;

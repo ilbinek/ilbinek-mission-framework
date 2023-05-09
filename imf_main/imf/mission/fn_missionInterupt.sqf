@@ -4,15 +4,12 @@
 *
 */
 
-// TODO
-
 params ["_side", "_reason"];
 
 // Interupted - export ocap and stats
 // export stats if stats logger plugin is available
 if (isClass(configFile >> "CfgPatches" >> "STATSLOGGER")) then {
     [] call statslogger_fnc_export;
-    
 };
 
 // Show that mission was interupted, who won and why

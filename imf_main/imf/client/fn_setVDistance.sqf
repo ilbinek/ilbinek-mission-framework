@@ -7,20 +7,29 @@
 params ["_distance"];
 
 player setVariable ["IMF_player_view_distance", _distance];
-
+private _obj = 1;
+private _ter = 1;
 switch (_distance) do {
 	case 0: {
-		setObjectViewDistance IMF_max_view_distance;
-		setViewDistance 10000;
+		_obj = profilenamespace getVariable ["IMF_user_view_objects_0", 1];
+		_ter = profilenamespace getVariable ["IMF_user_view_terrain", 1];
 	};
 
 	case 1: {
-		setObjectViewDistance (IMF_max_view_distance / 2);
-		setViewDistance IMF_max_view_distance;
+		_obj = profilenamespace getVariable ["IMF_user_view_objects_1", 0.5];
+		_ter = _obj;
 	};
 
 	case 2: {
-		setViewDistance ((IMF_max_view_distance / 4) min 200);
-		setObjectViewDistance ((IMF_max_view_distance / 4) min 200);
+		_obj = profilenamespace getVariable ["IMF_user_view_objects_2", 0.1];
+		_ter = _obj;
 	};
 };
+
+private _od = ((IMF_max_view_distance * _obj) min IMF_max_view_distance);
+private _ter = ((IMF_max_view_terrain * _ter) min IMF_max_view_terrain);
+if (_distance != 0) then {
+	_ter = _od;
+};
+setObjectViewDistance _od;
+setViewDistance _ter;

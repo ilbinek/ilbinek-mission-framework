@@ -24,7 +24,6 @@ class CfgFunctions {
 			class fixUniformBug {};
 			class createClientHandlers {};
 			class showKills {};
-			class startVLoop {};
 			class clientMissionEnd {};
 		};
 
@@ -54,9 +53,6 @@ class CfgFunctions {
 			class createLocalMarker {};
 			class disableAI {};
 			class removeAI {};
-			class spectatorWest {};
-			class spectatorEast {};
-			class spectatorTimer {};
 			class warn {};
 			class respawn {};
 			class teleport {};
@@ -69,11 +65,9 @@ class CfgFunctions {
 			class missionStart {};
 			class missionEnd {};
 			class missionInterupt {};
-			class calculateObjectives {};
 			class missionFreeze {};
 			class missionAddTime {};
 			class missionSubstracttime {};
-			class initObjectives {};
 		};
 
 		class admin {
@@ -86,6 +80,8 @@ class CfgFunctions {
 			file = "imf_main\imf\ui";
 			class openMenu {};
 			class mainMenuHandler {};
+			class optionsHandler {};
+			class spectatorUIhandler {};
 		};
 	};
 };

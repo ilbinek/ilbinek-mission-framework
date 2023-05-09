@@ -29,7 +29,7 @@ switch (_event) do {
 		// Close this dialog
 		closeDialog 0;
 		// Open dialog with options
-		hint "Not yet implemented";
+		createDialog "RscIMFOptions";
 	};
 
 	case "contact": {
@@ -64,6 +64,5 @@ switch (_event) do {
 		if !(serverCommandAvailable "#kick" or _uid == "76561197993230499" or _uid == "76561198018749868") exitWith {};
 
 		// Open the feedback dialog
-	};
-	
+	};	
 };
