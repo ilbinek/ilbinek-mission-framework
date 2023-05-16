@@ -55,3 +55,6 @@ addMissionEventHandler ["HandleDisconnect", {
 
 // Variable that will tell everyone that server finished init
 missionNamespace setVariable ["IMF_server_init_finished", true, true];
+
+// Set terrain grid to 3.125
+setTerrainGrid 3.125;

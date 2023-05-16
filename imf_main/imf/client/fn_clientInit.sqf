@@ -53,16 +53,20 @@ IMF_KILLS = [];
 IMF_KILLER = "";
 
 // Save the current loadout as local variable
-IMF_local_loadoUT = getUnitloadout player;
+IMF_local_loadout = getUnitloadout player;
 if (isNil "IMF_local_loadout") then {
     player publicVariableClient ["IMF_local_loadout", true];
 };
 
+player setVariable ["IMF_local_side", side player];
+
 // ACE Medical bug temp fix - https://github.com/acemod/ACE3/pull/9145
-if (player getVariable ["IMF_killed", false]) then {
+private _name = "KILLED_" + name player;
+if (missionNamespace getVariable ["_name", false]) then {
     player setDamage 1;
 } else {
     player setVariable ["ace_medical_causeOfDeath", nil];
 };
 
-player setVariable ["IMF_local_side", side player];
+// Set terraing grid to 3.125
+setterraingrid 3.125;

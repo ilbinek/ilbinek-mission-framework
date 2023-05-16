@@ -65,7 +65,15 @@ private _fncGenFreqArray = {
 	// Add these freqs into the global array
 	IMF_frequencies pushBack [_x, _freqs];
 
-	// TODO - set frequencies lol
+	// Rename the group to the correct name after the @ in the leaders description. If no @ found keep it default?
+	private _lead = leader _x;
+	private _desc = roleDescription _lead;
+	if (_desc != "") then {
+		private _nbr = _desc find "@";
+		if (_nbr >= 0) then {
+			_x setGroupIdGlobal [(_desc select [_nbr + 1])];
+		};
+	};
 } forEach allGroups;
 
 publicVariable "IMF_frequencies";

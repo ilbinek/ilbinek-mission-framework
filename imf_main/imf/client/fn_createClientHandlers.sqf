@@ -27,7 +27,8 @@ player addMPEventHandler ["MPKilled", {
 // Instead of onPlayerKilled.sqf
 player addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	_unit setVariable ["IMF_killed", true, true];
+	private _name = "KILLED_" + name player;
+	missionNamespace setVariable [_name, true, true];
 	// Start the spectator
 	["Initialize", [player, [], true, true, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
 	[] spawn {
@@ -43,6 +44,8 @@ player addEventHandler ["Killed", {
 
 player addEventHandler ["Respawn", {
 	params ["_unit", "_corpse"];
+	private _name = "KILLED_" + name player;
+	missionNamespace setVariable [_name, false, true];
 	// Turn off the spectator
 	["Terminate"] call BIS_fnc_EGSpectator;
 	// Turn off dead overlay

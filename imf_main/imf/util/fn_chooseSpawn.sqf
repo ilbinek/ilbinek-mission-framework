@@ -29,7 +29,7 @@ private _vehicles = [];
     IMF_player_spawnLoc = -1;
     private _cntr = 0;
     {
-        private _id = player addAction ["Spawn: " + _x, {IMF_player_spawnLoc = _this select 3;}, _cntr];
+        private _id = player addAction ["Spawn: " + markerText _x, {IMF_player_spawnLoc = _this select 3;}, _cntr];
         _ids pushBack _id;
         _cntr = _cntr + 1;
     } forEach _points;

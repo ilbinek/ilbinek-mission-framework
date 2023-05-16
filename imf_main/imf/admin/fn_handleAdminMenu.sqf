@@ -30,6 +30,20 @@ switch (_event) do {
 			_list2 lbAdd name _x;
 		} forEach (allPlayers select {side (group _x) == east});
 
+		_list lbAdd "===GREENFOR===";
+		_list2 lbAdd "===GREENFOR===";
+		{
+			_list lbAdd name _x;
+			_list2 lbAdd name _x;
+		} forEach (allPlayers select {side (group _x) == resistance});
+
+		_list lbAdd "===CIVILIAN===";
+		_list2 lbAdd "===CIVILIAN===";
+		{
+			_list lbAdd name _x;
+			_list2 lbAdd name _x;
+		} forEach (allPlayers select {side (group _x) == civilian});
+
 		// Run loop
 		["loop", _dialog] call IMF_fnc_handleAdminMenu;
 	};
@@ -38,7 +52,7 @@ switch (_event) do {
 		uiNamespace setVariable ["AdminDidalog", nil];
 	};
 	case "loop": {
-		// Create loop for mision time and FPS (move to server FPS sometime somehow lol)
+		// Create loop for mision time and server FPS
 		[_arg] spawn {
 			disableSerialization;
 			private _dialog = _this select 0;

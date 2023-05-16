@@ -33,7 +33,7 @@ private _textFreq = {
 			if (group player == _str select 0) then {
 				_color = "#c7861b";
 			};
-			_ret = format["<font color ='%1'>%2 %3</font><br/>", _color, groupID (_str select 0), if (isPlayer _leader) then {name _leader} else {""}];
+			_ret = format["<font color ='%1'>%2: %3</font><br/>", _color, groupID (_str select 0), if (isPlayer _leader) then {name _leader} else {""}];
 			_ret = _ret + format["%1 MHz    (%2,   %3,   %4 MHz)<br/><br/>", _freqArr select 0, _freqArr select 1, _freqArr select 2, _freqArr select 3];
 		};
 	};
