@@ -156,7 +156,7 @@ private _inventoryAction = ["OpenInventory","Open Inventory","",{params ["_targe
 
 while {IMF_warmup_state != 2} do {
     // Zone restrictions
-    if ((_startPos distance player) > (IMF_warmup_area - 10) && BIS_fnc_admin == 0) then {
+    if ((_startPos distance player) > (IMF_warmup_area - 10) && call BIS_fnc_admin == 0) then {
         hint "You're leaving the warmup area, please stop";
         if ((_startPos distance player) > (IMF_warmup_area)) then {
             hint "You were teleported back to the warmup area";
