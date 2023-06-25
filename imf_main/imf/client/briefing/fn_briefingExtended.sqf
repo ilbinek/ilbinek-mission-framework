@@ -100,7 +100,6 @@ if (count _enemyVehs != 0) then {
     _enemyVehs = _enemyVehs call BIS_fnc_consolidateArray;
     {
         _pic = gettext (configFile / "Cfgvehicles" / (_x select 0) / "picture");
-        diag_log _pic;
         _vehname = format ["%1", gettext (configFile >> "Cfgvehicles" >> (_x select 0) >> "displayname") ];
         
         _text = _text + format ["<img image='%3' height=24/> %1 - <font color='#c7861b'>%2</font>", _vehname, _x select 1, _pic];
@@ -122,7 +121,6 @@ if (count _friendlyVehs != 0) then {
     _friendlyVehs = _friendlyVehs call BIS_fnc_consolidateArray;
     {
         _pic = gettext (configFile / "Cfgvehicles" / (_x select 0) / "picture");
-        diag_log _pic;
         _vehname = format ["%1", gettext (configFile >> "Cfgvehicles" >> (_x select 0) >> "displayname") ];
         
         _text = _text + format ["<img image='%3' height=24/> %1 - <font color='#c7861b'>%2</font>", _vehname, _x select 1, _pic];

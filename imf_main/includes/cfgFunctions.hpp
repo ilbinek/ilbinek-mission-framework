@@ -73,7 +73,6 @@ class CfgFunctions {
 		class admin {
 			file = "imf_main\imf\admin";
 			class handleAdminMenu {};
-			class populatePlayers {};
 		};
 
 		class ui {
@@ -82,6 +81,8 @@ class CfgFunctions {
 			class mainMenuHandler {};
 			class optionsHandler {};
 			class spectatorUIhandler {};
+			class adminContactHandler {};
+			class adminContactAdminHandler {};
 		};
 	};
 };

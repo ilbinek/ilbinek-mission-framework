@@ -32,6 +32,7 @@ class RscBackgroundStripeBottom;
 class RscIGText;
 class RscIGProgress;
 class RscListBoxKeys;
+class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 class RscControlsGroupNoHScrollbars;
 class RscControlsGroupNoVScrollbars;

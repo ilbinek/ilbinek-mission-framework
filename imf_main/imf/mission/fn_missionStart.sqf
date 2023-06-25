@@ -33,22 +33,22 @@ if (!isServer) exitwith {};
 
 // Loop that will check if one of sides is considered eliminated
 if (IMF_mission_end_if_dead) then {
-	_west_start = {alive _x && side _x == west} count allPlayers;
-	_east_start = {alive _x && side _x == east} count allPlayers;
-	_guer_start = {alive _x && side _x == resistance} count allPlayers;
+	_west_start = {alive _x && side _x == west} count (call BIS_fnc_listPlayers);
+	_east_start = {alive _x && side _x == east} count (call BIS_fnc_listPlayers);
+	_guer_start = {alive _x && side _x == resistance} count (call BIS_fnc_listPlayers);
 	// TODO remake it to percentages
 	// TODO make it work in a three way
 
 	[_west_start, _east_start, _guer_start] spawn {
 		params ["_west_start", "_east_start", "_guer_start"];
 		waitUntil {sleep 1; IMF_warmup_state == 2};
-		if (count allPlayers < 10) exitWith {};
+		if (count (call BIS_fnc_listPlayers) < 10) exitWith {};
 		private _west = 0;
 		private _east = 0;
 		while {true} do {
-			_west = {alive _x && side _x == west} count allPlayers;
-			_east = {alive _x && side _x == east} count allPlayers;
-			_guer = {alive _x && side _x == resistance} count allPlayers;
+			_west = {alive _x && side _x == west} count (call BIS_fnc_listPlayers);
+			_east = {alive _x && side _x == east} count (call BIS_fnc_listPlayers);
+			_guer = {alive _x && side _x == resistance} count (call BIS_fnc_listPlayers);
 			if (_west < IMF_mission_end_players) exitWith {
 				[east, "Side eliminated"] call IMF_fnc_clientMissionEnd;
 			};

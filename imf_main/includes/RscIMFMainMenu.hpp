@@ -49,11 +49,30 @@ class RscIMFMainMenu {
 	onLoad = "['init', _this] call IMF_fnc_mainMenuHandler;";
 	onUnload = "['close', _this] call IMF_fnc_mainMenuHandler;";
 
+	class ControlsBackground {
+		class Background: RscText {
+			x = safeZoneX + safeZoneW * 0.2;
+			y = safeZoneY + safeZoneH * 0.2;
+			w = safeZoneW * 0.15;
+			h = safeZoneH * 0.265;
+			colorBackground[] = {0,0,0,0.7};
+		};
+
+		class Title: RscText {
+			x = safeZoneX + safeZoneW * 0.2;
+			y = safeZoneY + safeZoneH * 0.2;
+			w = safeZoneW * 0.15;
+			h = safeZoneH * 0.05;
+			colorBackground[] = {0.543,0.5742,0.4102,1.0};
+			text = "IMF MAIN MENU";
+		};
+	};
+
 	class Controls {
 		class RscButtonMenuOptions: RscIMFButtonMenu {
 			idc = IDC_MENU_OPTIONS;
 			x = safeZoneX + safeZoneW * 0.2;
-            y = safeZoneY + safeZoneH * 0.255;
+            y = safeZoneY + safeZoneH * 0.25;
             text = "OPTIONS";
             action = "['options', _this] call IMF_fnc_mainMenuHandler;";
 		};
@@ -61,7 +80,7 @@ class RscIMFMainMenu {
 		class RscButtonMenuContact: RscIMFButtonMenu {
 			idc = IDC_MENU_CONTACT;
 			x = safeZoneX + safeZoneW * 0.2;
-            y = safeZoneY + safeZoneH * 0.310;
+            y = safeZoneY + safeZoneH * 0.305;
             text = "CONTACT ADMIN";
             action = "['contact', _this] call IMF_fnc_mainMenuHandler;";
 		};
@@ -69,7 +88,7 @@ class RscIMFMainMenu {
 		class RscButtonMenuUniform: RscIMFButtonMenu {
 			idc = IDC_MENU_UNIFORM;
 			x = safeZoneX + safeZoneW * 0.2;
-            y = safeZoneY + safeZoneH * 0.365;
+            y = safeZoneY + safeZoneH * 0.36;
             text = "FIX UNIFORM BUG";
             action = "['fixUniformBug', _this] call IMF_fnc_mainMenuHandler;";
 		};
@@ -77,7 +96,7 @@ class RscIMFMainMenu {
 		class RscButtonMenuClose: RscIMFButtonMenu {
 			idc = IDC_MENU_CLOSE;
 			x = safeZoneX + safeZoneW * 0.2;
-            y = safeZoneY + safeZoneH * 0.420;
+            y = safeZoneY + safeZoneH * 0.415;
             text = "CLOSE";
             action = "closeDialog 0;";
 		};

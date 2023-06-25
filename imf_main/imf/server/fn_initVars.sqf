@@ -83,3 +83,10 @@ if (isNil "IMF_mission_time_end_text") then {
 
 // Set if mission ended
 missionNamespace setVariable ["IMF_MISSION_ENDED", false, true];
+
+// Create global hashmp that will contain all chat
+// The key is the player ID
+// The value is the array of chat message arrays
+// The chat message array is in format [_sender, _time, _message]
+private _map = createHashMap;
+missionNamespace setVariable ["IMF_GLOBAL_CHAT", _map, true];

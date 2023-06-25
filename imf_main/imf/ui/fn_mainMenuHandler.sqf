@@ -36,7 +36,7 @@ switch (_event) do {
 		// Close this dialog
 		closeDialog 0;
 		// Open feedback dialog
-		hint "Not yet implemented";
+		createDialog "RscIMFAdminContact";
 	};
 		
 	case "fixUniformBug": {
@@ -64,5 +64,7 @@ switch (_event) do {
 		if !(serverCommandAvailable "#kick" or _uid == "76561197993230499" or _uid == "76561198018749868") exitWith {};
 
 		// Open the feedback dialog
+		closeDialog 0;
+		createDialog "RscIMFAdminContactAdmin";
 	};	
 };

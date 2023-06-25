@@ -57,14 +57,17 @@ player addEventHandler ["Respawn", {
 	params ["_unit", "_state"];
 	if (_unit != player) exitWith {};
 	if (_state) then {
-		player setVariable ["OLD_GROUP", group player];
+		player setVariable ["IMF_OLD_GROUP", group player];
 		if (isNil "IMF_GLOBAL_CIVIL") then {
 			_group = createGroup civilian;
 			missionNamespace setVariable ["IMF_GLOBAL_CIVIL", _group, true];
 		};
 		[player] joinSilent IMF_GLOBAL_CIVIL;
 	} else {
-		_group = player getVariable "OLD_GROUP";
+		_group = player getVariable "IMF_OLD_GROUP";
+		if (isNull _group) then {
+			_group = createGroup (player getVariable "IMF_local_side");
+		};
 		[player] joinSilent _group;
 	};
 }] call CBA_fnc_addEventHandler;
@@ -72,3 +75,18 @@ player addEventHandler ["Respawn", {
 // Add view distance changes to zeus spectators
 ["ace_spectator_displayLoaded", {params ["_display"]; _display displayAddEventHandler ["KeyDown", {call cba_events_fnc_keyHandlerDown}];
 _display displayAddEventHandler ["KeyUp", {call cba_events_fnc_keyHandlerUp}];}] call CBA_fnc_addEventHandler;
+
+// Good way to show a hint if a player recieved a message from admin
+["IMF_CHAT_UPDATE", {
+	params ["_sender", "_text"];
+	hint format ["New message from %1: %2", _sender, _text];
+}] call CBA_fnc_addEventHandler;
+
+// Rewrote it to CBA - God bless them I guess eh?
+private _uid = getPlayerUID player;
+if (serverCommandAvailable "#kick" or _uid == "76561197993230499" or _uid == "76561198018749868") then {
+	["IMF_ADMIN_CHAT_UPDATE", {
+		params ["_sender", "_text"];
+		hint format ["New message from %1: %2", _sender, _text];
+	}] call CBA_fnc_addEventHandler;
+};

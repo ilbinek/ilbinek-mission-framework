@@ -21,35 +21,35 @@ switch (_event) do {
 		{
 			_list lbAdd name _x;
 			_list2 lbAdd name _x;
-		} forEach (allPlayers select {side (group _x) == west});
+		} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == west});
 
 		_list lbAdd "===OPFOR===";
 		_list2 lbAdd "===OPFOR===";
 		{
 			_list lbAdd name _x;
 			_list2 lbAdd name _x;
-		} forEach (allPlayers select {side (group _x) == east});
+		} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == east});
 
 		_list lbAdd "===GREENFOR===";
 		_list2 lbAdd "===GREENFOR===";
 		{
 			_list lbAdd name _x;
 			_list2 lbAdd name _x;
-		} forEach (allPlayers select {side (group _x) == resistance});
+		} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == resistance});
 
 		_list lbAdd "===CIVILIAN===";
 		_list2 lbAdd "===CIVILIAN===";
 		{
 			_list lbAdd name _x;
 			_list2 lbAdd name _x;
-		} forEach (allPlayers select {side (group _x) == civilian});
+		} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == civilian});
 
 		// Run loop
 		["loop", _dialog] call IMF_fnc_handleAdminMenu;
 	};
 	case "close": {
 		// Closed, remove the var
-		uiNamespace setVariable ["AdminDidalog", nil];
+		uiNamespace setVariable ["AdminDialog", nil];
 	};
 	case "loop": {
 		// Create loop for mision time and server FPS
@@ -125,28 +125,28 @@ switch (_event) do {
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == west});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == west});
 
 					_list1 lbAdd "==REDFOR==";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == east});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == east});
 
 					_list1 lbAdd "==GREENFOR==";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == resistance});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == resistance});
 
 					_list1 lbAdd "==CIVILIAN==";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == civilian});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == civilian});
 				};
 
 				if (ctrlText _name2 != _saved2) then {
@@ -158,28 +158,28 @@ switch (_event) do {
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == west});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == west});
 
 					_list2 lbAdd "==REDFOR==";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == east});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == east});
 
 					_list2 lbAdd "==GREENFOR==";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == resistance});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == resistance});
 
 					_list2 lbAdd "==CIVILIAN==";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
-					} forEach (allPlayers select {side (group _x) == civilian});
+					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == civilian});
 				};
 				sleep 0.2;
 			};

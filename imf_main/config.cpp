@@ -5,7 +5,8 @@
 #include "includes\RscIMFAdminMenu.hpp"
 #include "includes\RscIMFMainMenu.hpp"
 #include "includes\RscIMFOptionsMenu.hpp"
-#include "includes\RscIMFFeedback.hpp"
+#include "includes\RscIMFAdminContact.hpp"
+#include "includes\RscIMFAdminContactAdmin.hpp"
 
 class CfgPatches {
 	class imf_main {
