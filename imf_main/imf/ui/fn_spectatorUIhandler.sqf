@@ -1,17 +1,17 @@
+#define IMF_RSC_TIME 	6000
 #define IMF_RSC_TEXT_1 	6001
 #define IMF_RSC_TEXT_2 	6002
 #define IMF_RSC_TEXT_3 	6003
 #define IMF_RSC_TEXT_4 	6004
-#define IMF_RSC_TIME 	6005
 
-[] spawn {
-	private _dialog = uiNamespace getVariable "IMF_spectatorUI";
-
-	while {!isNil "_dialog"} do {
-		// Time portion
+[
+	{
+		private _dialog = uiNamespace getVariable ["IMF_spectatorUI", displayNull];
+		if (isNull _dialog) exitWith {};
+		// Update time
 		private _text = _dialog displayCtrl IMF_RSC_TIME;
 		_text ctrlSetText format ["%1", [IMF_mission_time_left, "MM:SS"] call BIS_fnc_secondsToString];
-
+		
 		// Numbers portion
 		private _nbr = IMF_RSC_TEXT_1;
 		{
@@ -28,7 +28,33 @@
 			};
 		} forEach [west, east, resistance, civilian];
 
-		sleep 0.1;
-		_dialog = uiNamespace getVariable "IMF_spectatorUI";
-	};
-};
+		// Secondary check - will clear all controls if player is alive and stop the PFH - will not trigger for spectators sots (sideLogic)
+		if (alive player && side player != sideLogic) then {
+			_nbr = IMF_RSC_TIME;
+			IMF_Spectator = false;
+			("IMF_spectatorUI" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
+		};
+
+		// Clear all controls if spectator UI is not visible
+		private _uiVisible = uiNamespace getVariable ["RscEGSpectator_interfaceVisible", false];
+		if (!ace_spectator_uiVisible || !_uiVisible) then {
+			_nbr = IMF_RSC_TIME;
+		};
+
+		// Clear the rest of the controls showing
+		while {_nbr <= IMF_RSC_TEXT_4} do {
+			_control = _dialog displayCtrl _nbr;
+			_control ctrlSetBackgroundColor [0, 0, 0, 0];
+			private _color = [0, 0, 0, 0];
+			_control ctrlSetText "";
+			_control ctrlCommit 0;
+			_nbr = _nbr + 1;
+		};
+	}, 		// Code to be executed
+	0,  	// Every frame
+	[], 	// No parameters
+	{}, 	// No start function
+	{}, 	// No end function
+	{true}, // Always run
+	{!IMF_Spectator} // Will delete PFH if IMF_Spectator is false
+] call CBA_fnc_createPerFrameHandlerObject;

@@ -1,11 +1,11 @@
 //("IMF_spectatorUI" call BIS_fnc_rscLayer) cutRsc ["IMF_spectatorUIRsc", "PLAIN"];	// show
 //("IMF_spectatorUI" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];				// remove
 
+#define IMF_RSC_TIME 	6000
 #define IMF_RSC_TEXT_1 	6001
 #define IMF_RSC_TEXT_2 	6002
 #define IMF_RSC_TEXT_3 	6003
 #define IMF_RSC_TEXT_4 	6004
-#define IMF_RSC_TIME 	6005
 
 class IMF_spectatorUIRsc {
 	idd = -1;
