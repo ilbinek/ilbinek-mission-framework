@@ -55,20 +55,19 @@ addMissionEventHandler ["EntityKilled", {
 }];
 
 ["IMF_Freeze", {
-    params ["_freeze"];
-    if (_freeze) then {
-        [{
-            {
-                if (simulationEnabled _x) then {
-                    _x enableSimulationGlobal false;
-                };
-            } forEach vehicles;
-        }, [], 10] call CBA_fnc_waitandexecute;
-    } else {
-        [{
-            {
-                _x enableSimulationGlobal true;
-            } forEach vehicles;
-        }, [],5] call CBA_fnc_waitandexecute;
-    };
+    [{
+        {
+            if (simulationEnabled _x) then {
+                _x enableSimulationGlobal false;
+            };
+        } forEach vehicles;
+    }, [], 10] call CBA_fnc_waitandexecute;
+}] call CBA_fnc_addEventHandler;
+
+["IMF_Unfreeze", {
+    [{
+        {
+            _x enableSimulationGlobal true;
+        } forEach vehicles;
+    }, [], 5] call CBA_fnc_waitandexecute;
 }] call CBA_fnc_addEventHandler;

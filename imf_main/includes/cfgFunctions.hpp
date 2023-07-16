@@ -16,7 +16,6 @@ class CfgFunctions {
 			class clientInit {};
 			class clientInitCall {};
 			class spectatorUI {};
-			class clientLoop {};
 			class createBriefing {};
 			class setRadioFreqs {};
 			class addKeybinds {};

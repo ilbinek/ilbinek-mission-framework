@@ -47,9 +47,6 @@ call IMF_fnc_createClientHandlers;
 // set view distance to the shortest
 [2] call IMF_fnc_setVdistance;
 
-// Start the client loop
-call IMF_fnc_clientLoop;
-
 // Add array that stores my kills
 IMF_KILLS = [];
 IMF_KILLER = "";
