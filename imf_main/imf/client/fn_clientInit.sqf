@@ -33,6 +33,8 @@ call IMF_fnc_disableAI;
 ["TFAR_event_OnradiosReceived", {
     [{
         call IMF_fnc_setradioFreqs;
+        // Temporary fix for TFAR bug
+        ["noAutomoveSpectator", missionNamespace getVariable ["TFAR_noAutomoveSpectator", false]] call TFAR_fnc_setPluginSetting;
     }, [], 1] call CBA_fnc_waitandexecute;
 }] call CBA_fnc_addEventHandler;
 
