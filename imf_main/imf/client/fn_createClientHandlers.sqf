@@ -56,27 +56,7 @@ player addEventHandler ["Respawn", {
     ("IMF_spectatorUI" call BIS_fnc_rscLayer) cuttext ["", "PLAIN"];
 }];
 
-// player went uncon
-["ace_unconscious", {
-    params ["_unit", "_state"];
-    if (_unit != player) exitwith {};
-    if (_state) then {
-        player setVariable ["IMF_OLD_group", group player];
-        if (isnil "IMF_GLOBAL_CIVIL") then {
-            _group = creategroup civilian;
-            missionnamespace setVariable ["IMF_GLOBAL_CIVIL", _group, true];
-        };
-        [player] joinSilent IMF_GLOBAL_CIVIL;
-    } else {
-        _group = player getVariable "IMF_OLD_group";
-        if (isNull _group) then {
-            _group = creategroup (player getVariable "IMF_local_side");
-        };
-        [player] joinSilent _group;
-    };
-}] call CBA_fnc_addEventHandler;
-
-// Add view distance changes to zeus spectators
+// Add view distance changes to ace spectators
 ["ace_spectator_displayloaded", {
     params ["_display"];
     _display displayAddEventHandler ["Keydown", {
@@ -177,3 +157,17 @@ if (serverCommandAvailable "#kick" or _uid == "76561197993230499" or _uid == "76
         player enableSimulation true;
     }, [], 1] call CBA_fnc_waitandexecute;
 }] call CBA_fnc_addEventHandler;
+
+/*["IMF_Freeze_Warmup", {
+    player enableSimulation false;
+
+}] call CBA_fnc_addEventHandler;
+
+["IMF_Unfreeze_Warmup", {
+    if (simulationEnabled player) exitwith {};
+    private _time = (random 10) + 2;;
+    [{
+        player enableSimulation true;
+    }, [], _time] call CBA_fnc_waitandexecute;
+}] call CBA_fnc_addEventHandler;
+*/

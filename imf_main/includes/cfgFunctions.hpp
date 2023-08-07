@@ -52,7 +52,7 @@ class CfgFunctions {
 			class createLocalMarker {};
 			class disableAI {};
 			class removeAI {};
-			class warn {};
+			class heal {};
 			class respawn {};
 			class teleport {};
 			class chooseSpawn {};

@@ -1,7 +1,25 @@
 /*
-*
-*	DOCS MAYBE SOMEDAY
-*
+	FILE: fn_init.sqf
+
+	Name: IMF_fnc_init
+
+	Author(s):
+		ilbinek
+
+	Description:
+		Initializes the IMF framework. Called from the module's init field.
+
+	Parameters:
+		Whatever is passed to the module's init field.
+
+	Returns:
+		Nothing
+
+	Examples:
+		> call IMF_fnc_init;
+
+	Public:
+		No
 */
 
 // Argument 0 is module logic.

@@ -27,14 +27,14 @@ call IMF_fnc_disableAI;
 // if spectating or dead, start drawing spectator UI, otherwise this will exit
 [] spawn IMF_fnc_spectatorUI;
 
-// set correct frequencies on radios (requires TFAR)
+// set correct frequencies on radios (requires TFAR Beta)
 // Adds an CBA event handler, TFAR_event_OnradiosReceived is fired by TFAR addon for local client when is radios
 // are done inicialising and you can have fun with them
 ["TFAR_event_OnradiosReceived", {
     [{
         call IMF_fnc_setradioFreqs;
         // Temporary fix for TFAR bug
-        ["noAutomoveSpectator", missionNamespace getVariable ["TFAR_noAutomoveSpectator", false]] call TFAR_fnc_setPluginSetting;
+        ["noAutomoveSpectator", true] call TFAR_fnc_setPluginSetting;
     }, [], 1] call CBA_fnc_waitandexecute;
 }] call CBA_fnc_addEventHandler;
 

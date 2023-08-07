@@ -1,7 +1,31 @@
 /*
-*
-*	DOCS MAYBE SOMEDAY
-*
+	FILE: fn_createLocalMarker.sqf
+
+	Name: IMF_fnc_createLocalMarker
+
+	Author(s):
+		ilbinek
+
+	Description:
+		Creates a local marker
+
+	Parameters:
+		_name	- STRING - Name of the marker
+		_pos	- ARRAY - Position of the marker
+		_text	- STRING - Text of the marker
+		_color	- STRING - Color of the marker
+		_type	- STRING - Type of the marker
+		_shape	- STRING - Shape of the marker
+		_size	- NUMBER - Size of the marker
+
+	Returns:
+		OBJECT - Marker object
+
+	Examples:
+		> ["markerName", [0,0,0], "Marker text", "ColorRed", "mil_dot", "RECTANGLE", 1] call IMF_fnc_createLocalMarker;
+
+	Public:
+		Yes
 */
 
 // TODO: Add default variables

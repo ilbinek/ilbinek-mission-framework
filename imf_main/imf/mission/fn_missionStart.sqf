@@ -38,7 +38,7 @@ if (!isServer) exitwith {};
 ] call CBA_fnc_createPerFrameHandlerObject;
 
 // Loop that will check if one of sides is considered eliminated
-if (IMF_mission_end_if_dead) then {
+/*if (IMF_mission_end_if_dead) then {
     _west_start = {
         alive _x && side _x == west
     } count (call BIS_fnc_listplayers);
@@ -80,4 +80,4 @@ if (IMF_mission_end_if_dead) then {
             IMF_mission_time_left < 0 || IMF_MISSION_ENDED
         } 		// Will delete PFH when mission ends
     ] call CBA_fnc_createPerFrameHandlerObject;
-};
+};*/

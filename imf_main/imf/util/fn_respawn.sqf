@@ -1,7 +1,25 @@
 /*
-*
-*	DOCS MAYBE SOMEDAY
-*
+	FILE: fn_respawn.sqf
+
+	Name: IMF_fnc_respawn
+
+	Author(s):
+		ilbinek
+
+	Description:
+		Respawn script for IMF. Runs locally on each client, checks if it should be run on this client and if so, respawns the player.
+
+	Parameters:
+		_name - STRING - Name of the player to respawn
+
+	Returns:
+		Nothing
+
+	Examples:
+		> ["playerName"]call IMF_fnc_respawn;
+
+	Public:
+		Yes
 */
 
 params ["_name"];

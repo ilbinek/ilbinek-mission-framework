@@ -26,6 +26,8 @@ call IMF_fnc_prepareBriefing;
 // Generate frequencies
 call IMF_fnc_generateFreqs;
 
+// TODO Set vehicle LR frequencies
+
 // Disable thermal imaging
 if (IMF_mission_ti_disable) then {
     call IMF_fnc_disableTI;

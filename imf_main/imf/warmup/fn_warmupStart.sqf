@@ -1,7 +1,25 @@
 /*
-*
-*	DOCS MAYBE SOMEDAY
-*
+	FILE: fn_warmupStart.sqf
+
+	Name: IMF_fnc_warmupStart
+
+	Author(s):
+		ilbinek
+
+	Description:
+		Starts the client warmup handling
+
+	Parameters:
+		None
+
+	Returns:
+		Nothing
+
+	Examples:
+		> call IMF_fnc_warmupStart;
+
+	Public:
+		Yes
 */
 
 // Warmup states
@@ -11,8 +29,9 @@
 * 2 - finished
 */
 
-if (IMF_warmup_state == 2) exitwith {};
+if (IMF_warmup_state == 2) exitwith {showChat false};
 
+// Save the starting pos so player can be teleported back to it in case he leaves the warmup area
 private _startPos = getPos player;
 
 // Make players invincible
@@ -22,9 +41,10 @@ player allowdamage false;
 ["spawn_AREA", player, "", "ColorGreen", "EMPTY", "ELLIPSE", [IMF_warmup_area, IMF_warmup_area]] call IMF_fnc_createlocalMarker;
 
 // Create markers for side squads
-local_group_markers = [];
+_local_group_markers = [];
+
 // Create markers for vehicles
-local_vehicle_markers = [];
+_local_vehicle_markers = [];
 
 private _fnc_getVehMarkername = {
     params ["_pos"];
@@ -59,7 +79,7 @@ private _fnc_getVehMarkername = {
         // Create the marker itself
         [_marker, _pos, _text, _color, "mil_dot", "ICON", [1, 1]] call IMF_fnc_createlocalMarker;
         // Add the marker into the array
-        local_group_markers pushBack _marker;
+        _local_group_markers pushBack _marker;
     };
 } forEach allgroups;
 
@@ -91,7 +111,7 @@ if (side player == sideLogic) then {
         // Create the marker itself
         [_marker, _pos, _text, _color, "mil_dot", "ICON", [1, 1]] call IMF_fnc_createlocalMarker;
         // Add the marker into the array
-        local_group_markers pushBack _marker;
+        _local_group_markers pushBack _marker;
     } forEach allgroups;
 };
 
@@ -103,7 +123,7 @@ if (side player == sideLogic) then {
             private _marker = [_pos] call _fnc_getVehMarkername;
             private _text = format ["%1", gettext (configFile >> "Cfgvehicles" >> _class >> "displayname")];
             [_marker, _pos, _text, "ColorYellow", "mil_dot", "ICON", [1, 1]] call IMF_fnc_createLocalMarker;
-            local_vehicle_markers pushBack _marker;
+            _local_vehicle_markers pushBack _marker;
         };
     };
 } forEach IMF_briefing_data;
@@ -191,17 +211,20 @@ while {IMF_warmup_state != 2} do {
 // Delete the local warmup area marker
 deleteMarkerlocal "spawn_AREA";
 
-// Delete the local groups markers
-{
-    // Current result is saved in variable _x
-    deleteMarkerlocal _x;
-} forEach local_group_markers;
+// Delete the local group markers and local vehicle markers after 60 seconds
+[{
+    params ["_local_group_markers", "_local_vehicle_markers"];
+    {
+        deleteMarkerlocal _x;
+    } forEach _local_group_markers;
 
-// Delete the local vehicle markers
-{
-    // Current result is saved in variable _x
-    deleteMarkerlocal _x;
-} forEach local_vehicle_markers;
+    // Delete the local vehicle markers
+    {
+        deleteMarkerlocal _x;
+    } forEach _local_vehicle_markers;
+},
+[_local_group_markers, _local_vehicle_markers],
+120] call CBA_fnc_waitAndExecute;
 
 // Make player vincible
 player allowdamage true;
@@ -212,6 +235,8 @@ private _author = getMissionConfigValue ["author", ""];
 private _name = getMissionConfigValue ["onLoadName", ""];
 
 [_name, name player, format ["by %1", _author]] spawn BIS_fnc_infoText;
+
+showChat false;
 
 // Remove the option to open AIs inventory during warmup
 {
