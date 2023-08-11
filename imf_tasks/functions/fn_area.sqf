@@ -75,7 +75,22 @@ _activated = param [2,true,[true]];
 		private _cap = 0;
 		private _capSide = civilian;
 		if (_capturer == civilian) then {
-			// TODO 
+			private _west = { alive _x && side _x == west && _x inArea _marker && (getPos _x select 2) <= _height} count allPlayers;
+			private _east = { alive _x && side _x == east && _x inArea _marker && (getPos _x select 2) <= _height} count allPlayers;
+			private _res = { alive _x && side _x == resistance && _x inArea _marker && (getPos _x select 2) <= _height} count allPlayers;
+			private _max = selectMax [_west, _east, _res];
+			if (_max == _west) then {
+				_cap = _west;
+				_capSide = west;
+			} else {
+				if (_max == _east) then {
+					_cap = _east;
+					_capSide = east;
+				} else {
+					_cap = _res;
+					_capSide = resistance;
+				};
+			};
 		} else {
 			_cap = { alive _x && side _x == _capturer && _x inArea _marker && (getPos _x select 2) <= _height} count allPlayers;
 			_capSide = _capturer;
@@ -104,7 +119,9 @@ _activated = param [2,true,[true]];
 				_timeLeft = _timeLeft -1;
 				if (_timeLeft == 0) then {
 					[_capSide, "finished", _name, _timeToCapture] remoteExec ["IMF_fnc_areaNotification", [0, -2] select isDedicated];
-					_capturer = _owner;
+					if (_capturer != civilian) then {
+						_capturer = _owner;
+					};
 					_owner = _capSide;
 					_logic setVariable ["IMF_owner", _owner, true];
 					private _color = if (_owner == civilian) then [{"ColorWhite"}, {[_owner, true] call BIS_fnc_sideColor}];
