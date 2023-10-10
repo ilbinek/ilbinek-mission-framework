@@ -35,6 +35,8 @@ call IMF_fnc_disableAI;
         call IMF_fnc_setradioFreqs;
         // Temporary fix for TFAR bug
         ["noAutomoveSpectator", true] call TFAR_fnc_setPluginSetting;
+        // Temporary fix for TFAR bug
+        ["allowDebugging", false] call TFAR_fnc_setPluginSetting;
     }, [], 1] call CBA_fnc_waitandexecute;
 }] call CBA_fnc_addEventHandler;
 
