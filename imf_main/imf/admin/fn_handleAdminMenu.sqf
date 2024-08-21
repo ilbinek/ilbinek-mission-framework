@@ -119,29 +119,29 @@ switch (_event) do {
 				if (ctrlText _name1 != _saved1) then {
 					lbClear _list1;
 					_saved1 = ctrlText _name1;
-					_list1 lbAdd "==WHO==";
-					_list1 lbAdd "==BLUEFOR==";
+					_list1 lbAdd "===WHO===";
+					_list1 lbAdd "===BLUEFOR===";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == west});
 
-					_list1 lbAdd "==REDFOR==";
+					_list1 lbAdd "===REDFOR===";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == east});
 
-					_list1 lbAdd "==GREENFOR==";
+					_list1 lbAdd "===GREENFOR===";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == resistance});
 
-					_list1 lbAdd "==CIVILIAN==";
+					_list1 lbAdd "===CIVILIAN===";
 					{
 						if ([_saved1, name _x] call BIS_fnc_inString) then {
 							_list1 lbAdd name _x;
@@ -152,29 +152,29 @@ switch (_event) do {
 				if (ctrlText _name2 != _saved2) then {
 					lbClear _list2;
 					_saved2 = ctrlText _name2;
-					_list2 lbAdd "==WHERE==";
-					_list2 lbAdd "==BLUEFOR==";
+					_list2 lbAdd "===WHERE===";
+					_list2 lbAdd "===BLUEFOR===";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == west});
 
-					_list2 lbAdd "==REDFOR==";
+					_list2 lbAdd "===REDFOR===";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == east});
 
-					_list2 lbAdd "==GREENFOR==";
+					_list2 lbAdd "===GREENFOR===";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
 						};
 					} forEach ((call BIS_fnc_listPlayers) select {side (group _x) == resistance});
 
-					_list2 lbAdd "==CIVILIAN==";
+					_list2 lbAdd "===CIVILIAN===";
 					{
 						if ([_saved2, name _x] call BIS_fnc_inString) then {
 							_list2 lbAdd name _x;
@@ -201,12 +201,12 @@ switch (_event) do {
 		private _name = _list lbText _index;
 		[_name] remoteExec ["IMF_fnc_respawn", [0, -2] select isDedicated];
 	};
-	case "warn": {
+	case "heal": {
 		private _dialog = uiNamespace getVariable ["AdminDialog", displayNull];
 		private _list = _dialog displayCtrl 6559;
 		private _index = lbCurSel _list;
 		private _name = _list lbText _index;
-		[_name] remoteExec ["IMF_fnc_warn", [0, -2] select isDedicated];
+		[_name] remoteExec ["IMF_fnc_heal", [0, -2] select isDedicated];
 	};
 	case "teleport": {
 		private _dialog = uiNamespace getVariable ["AdminDialog", displayNull];

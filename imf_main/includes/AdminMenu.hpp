@@ -103,7 +103,7 @@ class AdminMenu
 			soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
 			soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
 			soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
-			onButtonClick = "[60] call IMF_fnc_warmupaAddTime;";
+			onButtonClick = "[60] call IMF_fnc_warmupAddTime;";
 			
 		};
 		class warmupRemove1
@@ -515,7 +515,7 @@ class AdminMenu
 			w = safeZoneW * 0.05989584;
 			h = safeZoneH * 0.05;
 			style = 0+2;
-			text = "Warn";
+			text = "Heal";
 			borderSize = 0;
 			colorBackground[] = {0.902,0.902,0.302,1};
 			colorBackgroundActive[] = {1,0,0,1};
@@ -535,7 +535,7 @@ class AdminMenu
 			soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
 			soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
 			soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
-			onButtonClick = "['warn', _this] call IMF_fnc_handleAdminMenu";
+			onButtonClick = "['heal', _this] call IMF_fnc_handleAdminMenu";
 			
 		};
 		class endMission

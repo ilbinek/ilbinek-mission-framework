@@ -6,6 +6,7 @@
 
 // Secondary check if called by server
 if (!isServer) exitwith {};
+
 // Check that init isn't run more than once
 if (!isNil "IMF_server_init_ran") exitwith {};
 missionnamespace setVariable ["IMF_server_init_ran", true, true];
@@ -15,7 +16,7 @@ call IMF_fnc_initVars;
 
 // spawn the thread taking care of warmup
 missionNamespace setVariable ["IMF_warmup_freeze", true, true];
-[] spawn IMF_fnc_warmupStartServer;
+call IMF_fnc_warmupStartServer;
 
 // Freze AIs
 call IMF_fnc_disableAI;
@@ -25,6 +26,9 @@ call IMF_fnc_prepareBriefing;
 
 // Generate frequencies
 call IMF_fnc_generateFreqs;
+
+// Set vehicle LR frequencies
+[] spawn IMF_fnc_setVehicleFreqs;
 
 // Disable thermal imaging
 if (IMF_mission_ti_disable) then {

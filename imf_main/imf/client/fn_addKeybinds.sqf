@@ -17,3 +17,6 @@ waitUntil {sleep 1; time > 1};
 
 // Keybind to open admin menu
 ["IMF","open_menu", "Opens main menu", {call IMF_fnc_openMenu}, "", [DIK_HOME, [false, false, false]]] call CBA_fnc_addKeybind;
+
+// Add settings for Killfeed
+["IMF_KILLFEED_ENABLED", "CHECKBOX", ["Enable killfeed", "Will enable killfeed while spectating"], "IMF", true] call CBA_fnc_addSetting;

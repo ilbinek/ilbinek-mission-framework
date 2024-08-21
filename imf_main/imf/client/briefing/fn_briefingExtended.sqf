@@ -66,7 +66,7 @@ private _fnc_getItemConfig = {
         if (_side in _friendlysides) then {
             // inventory magic
             if (count _inv > 0) then {
-                _inventorytext = _inventorytext + format ["<br/><img image='%2' height=24/> <marker name=%3><font color='#c7861b'>%1</font></marker><br/>",
+                _inventorytext = _inventorytext + format ["<br/><img image='%2' height=24/> <font color='#c7861b'><marker name='%3'>%1</marker></font><br/>",
                 format ["%1", gettext (configFile >> "Cfgvehicles" >> _class >> "displayname") ], _pic, [_pos] call _fnc_getVehMarkerName];
                 
                 if (!isnil "_inv") then {

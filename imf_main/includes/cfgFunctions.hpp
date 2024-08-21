@@ -9,6 +9,7 @@ class CfgFunctions {
 			class generateFreqs {};
 			class disableTI {};
 			class createHandlers {};
+			class setVehicleFreqs {};
 		};
 
 		class client {
@@ -16,7 +17,6 @@ class CfgFunctions {
 			class clientInit {};
 			class clientInitCall {};
 			class spectatorUI {};
-			class clientLoop {};
 			class createBriefing {};
 			class setRadioFreqs {};
 			class addKeybinds {};
@@ -53,11 +53,13 @@ class CfgFunctions {
 			class createLocalMarker {};
 			class disableAI {};
 			class removeAI {};
-			class warn {};
+			class heal {};
 			class respawn {};
 			class teleport {};
 			class chooseSpawn {};
 			class init {};
+			class processKill {};
+			class showGuide {};
 		};
 
 		class mission {

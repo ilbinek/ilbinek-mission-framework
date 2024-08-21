@@ -90,3 +90,7 @@ missionNamespace setVariable ["IMF_MISSION_ENDED", false, true];
 // The chat message array is in format [_sender, _time, _message]
 private _map = createHashMap;
 missionNamespace setVariable ["IMF_GLOBAL_CHAT", _map, true];
+
+// A killfeed variable
+IMF_KILL_FEED = [];
+missionNamespace setVariable ["IMF_KILL_FEED", IMF_KILL_FEED, true];
