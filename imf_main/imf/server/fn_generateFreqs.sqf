@@ -52,11 +52,12 @@ private _fncGenFreqArray = {
 {
 	private _freqs = [true] call _fncGenFreqArray;
 	IMF_frequencies pushBack [_x, _freqs];
-} forEach [west, east];
+} forEach [west, east, resistance];
 
 // IMF_frequencies now contains:
 //	[west, [freq1, freq2, freq3, freq4]]
 //	[east, [freq1, freq2, freq3, freq4]]
+//	[resistance, [freq1, freq2, freq3, freq4]]
 
 // Generate SR freqs per squad and inject the first one into SR settings
 {

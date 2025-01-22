@@ -7,10 +7,11 @@
 // Check if client
 if (!hasInterface) exitWith {};
 
-private _sideToColor = {
+private 	 = {
 	switch(_this select 0) do {
 		case WEST:{"#288cf0"};
 		case EAST:{"#cd2e2e"};
+		case RESISTANCE:{"#005f00"};
 		default{"#ececec"};
 	};
 };

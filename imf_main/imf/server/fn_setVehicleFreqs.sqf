@@ -25,10 +25,13 @@
 // Get the correct freqs from frequency list
 private _westFreq = "";
 private _eastFreq = "";
+private _restFreq = "";
+
 {
 	if (typeName (_x select 0) == "SIDE") then {
 		if (_x select 0 == west) then {_westFreq = str((_x select 1) select 0)};
 		if (_x select 0 == east) then {_eastFreq = str((_x select 1) select 0)};
+		if (_x select 0 == resistance) then {_restFreq = str((_x select 1) select 0)};
 	};	
 } forEach IMF_frequencies;
 
@@ -42,8 +45,10 @@ waitUntil {sleep 1; time > 3};
 			{
 				if (_side == west) then {
 					[_x, _westFreq] call TFAR_fnc_setLrFrequency;
-				} else {
+				} else if (_side == east) {
 					[_x, _eastFreq] call TFAR_fnc_setLrFrequency;
+				} else {
+					[_x, _restFreq] call TFAR_fnc_setLrFrequency;
 				};
 			} foreach _radios;
 		};
