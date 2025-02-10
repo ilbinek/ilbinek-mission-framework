@@ -7,7 +7,7 @@
 // Check if client
 if (!hasInterface) exitWith {};
 
-private 	 = {
+private _sideToColor = { 
 	switch(_this select 0) do {
 		case WEST:{"#288cf0"};
 		case EAST:{"#cd2e2e"};

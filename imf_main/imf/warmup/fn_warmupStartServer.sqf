@@ -76,6 +76,7 @@ switch (true) do {
                 } else {
                     // Warmup ended
                     missionnamespace setVariable ["IMF_warmup_state", 2, true];
+                    ["IMF_WAMRUP_END", []] call CBA_fnc_globalEvent;
                 };
             }, 		// Code to be executed
             1, 		// Once a second

@@ -45,9 +45,11 @@ waitUntil {sleep 1; time > 3};
 			{
 				if (_side == west) then {
 					[_x, _westFreq] call TFAR_fnc_setLrFrequency;
-				} else if (_side == east) {
+				};
+                if (_side == east) then {
 					[_x, _eastFreq] call TFAR_fnc_setLrFrequency;
-				} else {
+                };
+				if (_side == resistance) then {
 					[_x, _restFreq] call TFAR_fnc_setLrFrequency;
 				};
 			} foreach _radios;
