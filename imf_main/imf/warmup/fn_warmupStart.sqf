@@ -31,14 +31,8 @@
 
 if (IMF_warmup_state == 2) exitwith {showChat false};
 
-// Save the starting pos so player can be teleported back to it in case he leaves the warmup area
-IMF_WAMRUP_START_POS = getPos player;
-
 // Make players invincible
 player allowdamage false;
-
-// Create warmup area marker
-["spawn_AREA", player, "", "ColorGreen", "EMPTY", "ELLIPSE", [IMF_warmup_area, IMF_warmup_area]] call IMF_fnc_createlocalMarker;
 
 // Create markers for side squads
 _local_group_markers = [];
@@ -173,6 +167,16 @@ private _inventoryAction = ["OpenInventory","Open Inventory","",{params ["_targe
 
 // A small script running during the warmup - backup engine disable, as zeus spawned vehicles aren't disabled
 // Also takes care of deleting local warmup markers after the warmup end
+
+// Super random fix for desync - https://github.com/CBATeam/CBA_A3/blob/master/addons/xeh/fnc_preInit.sqf#L42
+// BaerMitUmlaut - you're a crazy one
+waitUntil { SLX_XEH_MACHINE#8 };
+
+// Create warmup area marker
+["spawn_AREA", player, "", "ColorGreen", "EMPTY", "ELLIPSE", [IMF_warmup_area, IMF_warmup_area]] call IMF_fnc_createlocalMarker;
+
+// Save the starting pos so player can be teleported back to it in case he leaves the warmup area
+IMF_WAMRUP_START_POS = getPos player;
 
 while {IMF_warmup_state != 2} do {
     // Zone restrictions
